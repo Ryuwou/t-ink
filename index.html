@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-INK | Excellence Artistique</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav>
+            <ul class="nav-group">
+                <li><a href="#accueil">ACCUEIL</a></li>
+                <li><a href="#artistes">ARTISTES</a></li>
+            </ul>
+
+            <div class="logo-central">
+                <div class="circle">
+                    <img src="img/logo_tink.png" alt="T-INK Logo">
+                </div>
+            </div>
+
+            <ul class="nav-group">
+                <li><a href="#reservations">RÉSERVATIONS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <img src="img/fond_tink.jpeg" alt="Fond Tattoo" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>BIENVENUE CHEZ T-INK</h1>
+                <p class="hero-p">Exprimez votre histoire. Encre durable, excellence artistique.</p>
+                <a href="#reservations" class="cta-button">RÉSERVER VOTRE SÉANCE</a>
+            </div>
+        </section>
+
+        <section id="artistes" class="artists">
+            <div class="container">
+                <h2>NOS ARTISTES</h2>
+                <p class="section-intro">Découvrez les talents qui donnent vie à vos projets.</p>
+                <div class="artists-grid">
+                    <div class="artist-card">
+                        <div class="img-wrapper">
+                            <img src="img/artiste_01.jpg" alt="Artiste 1">
+                        </div>
+                        <div class="artist-info">
+                            <h3>RYUJI</h3>
+                            <p>Réalisme Noir & Blanc</p>
+                        </div>
+                    </div>
+                    <div class="artist-card">
+                        <div class="img-wrapper">
+                            <img src="img/artiste_02.png" alt="Artiste 2">
+                        </div>
+                        <div class="artist-info">
+                            <h3>KAITO</h3>
+                            <p>Maître Tebori Traditionnel</p>
+                        </div>
+                    </div>
+                    <div class="artist-card">
+                        <div class="img-wrapper">
+                            <img src="img/artiste_03.png" alt="Artiste 3">
+                        </div>
+                        <div class="artist-info">
+                            <h3>MEI</h3>
+                            <p>Fine Line & Ornemental</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservations" class="booking">
+            <div class="section-content">
+                <h2>RÉSERVATIONS</h2>
+                <p class="subtitle">Prenez rendez-vous pour donner vie à votre projet.</p>
+                
+                <form class="booking-form" id="contactForm">
+                    <div class="input-group">
+                        <input type="text" placeholder="NOM COMPLET" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="EMAIL" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea placeholder="DÉCRIVEZ VOTRE PROJET" rows="5" required></textarea>
+                    </div>
+                    <div class="form-action">
+                        <button type="submit" class="cta-button">ENVOYER LA DEMANDE</button>
+                    </div>
+                </form>
+
+                <div id="confirmationMessage" class="success-card" style="display: none;">
+                    <div class="success-icon-wrap">
+                        <div class="success-icon">✓</div>
+                    </div>
+                    <h3>DEMANDE REÇUE</h3>
+                    <div class="divider-gold"></div>
+                    <p>Votre message a été transmis avec succès. Notre équipe artistique étudiera votre projet et vous contactera par email sous 48h.</p>
+                    <button onclick="resetForm()" class="back-link">Nouvelle demande</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tebori" class="practice">
+            <div class="container">
+                <h2>NOTRE SPÉCIALITÉ : LE TEBORI</h2>
+                <div class="practice-container">
+                    <div class="practice-text">
+                        <p>Le Tebori est une technique de tatouage traditionnelle japonaise réalisée entièrement à la main. Cette méthode ancestrale permet une saturation des couleurs incomparable et une cicatrisation souvent plus douce.</p>
+                    </div>
+                    <div class="practice-img">
+                        <img src="img/tebori_pratique.jpg" alt="Pratique du Tebori">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>CONTACT</h2>
+                <div class="contact-info">
+                    <div class="info-block">
+                        <h3>ADRESSE</h3>
+                        <p>14 Rue du Temple, 75004 Paris</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>HORAIRES</h3>
+                        <p>Mardi - Samedi : 11h00 - 19h00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 T-INK </p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const confirmation = document.getElementById('confirmationMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+                confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        });
+
+        function resetForm() {
+            confirmation.style.display = 'none';
+            form.reset();
+            form.style.display = 'flex';
+            form.style.opacity = '1';
+        }
+    </script>
+</body>
+</html>
